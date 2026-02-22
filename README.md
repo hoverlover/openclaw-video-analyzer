@@ -31,25 +31,32 @@ A fast, cost-effective pipeline for extracting insights from YouTube videos:
 
 ### Install the Skill
 
-OpenClaw loads skills from **3 locations** (in order):
+OpenClaw loads skills from **3 locations** (in order of precedence):
 
-1. **Built-in skills** (`/opt/homebrew/lib/node_modules/openclaw/skills/`)
-2. **User directory** (`~/.openclaw/skills/`) ← **Recommended**
-3. **Custom paths** (configured in `openclaw.json`)
+| Location | Path | Precedence |
+|----------|------|------------|
+| **Workspace skills** | `<workspace>/skills/` | Highest |
+| **Managed/local skills** | `~/.openclaw/skills/` | Middle |
+| **Bundled skills** | Shipped with OpenClaw | Lowest |
 
-**Clone into the user skills directory:**
+If a skill name conflicts, workspace wins → managed/local → bundled.
+
+**Clone into managed skills (recommended for shared use):**
 
 ```bash
-# Create the user skills directory if it doesn't exist
 mkdir -p ~/.openclaw/skills
-
-# Clone the repo
 git clone https://github.com/hoverlover/openclaw-video-analyzer.git ~/.openclaw/skills/video-analyzer
+```
+
+**Or clone into workspace skills (project-specific):**
+
+```bash
+git clone https://github.com/hoverlover/openclaw-video-analyzer.git ./skills/video-analyzer
 ```
 
 Then restart OpenClaw: `openclaw gateway restart`
 
-*Note: You can also clone elsewhere and symlink, or add a custom path to `openclaw.json` under `plugins.load.paths`.*
+*You can also configure extra skill folders via `skills.load.extraDirs` in `~/.openclaw/openclaw.json` (lowest precedence).*
 
 ## Usage
 
