@@ -90,15 +90,25 @@ The agent will automatically:
 YouTube URL → yt-dlp → Audio → Groq Whisper → Transcript → Kimi Analysis → Insights
 ```
 
+## How Chunking Works
+
+For videos longer than ~15 minutes or larger than 25MB, the script automatically:
+
+1. **Detects silence points** using ffmpeg's `silencedetect` filter
+2. **Finds optimal split points** between 10-15 minute intervals, preferring natural pauses
+3. **Transcribes each chunk** sequentially via Groq Whisper
+4. **Stitches transcripts** together with paragraph breaks
+
+This keeps each chunk well under Groq's 25MB limit while maintaining natural speech boundaries.
+
 ## Limitations
 
-- **25MB limit** per audio file (~25 min videos)
 - **YouTube only** (currently)
 - **English optimized** (other languages may work)
 
 ## Future Ideas
 
-- [ ] Chunking for long videos
+- [x] Chunking for long videos (✅ implemented)
 - [ ] Non-YouTube sources
 - [ ] Speaker diarization
 - [ ] Timestamp extraction
