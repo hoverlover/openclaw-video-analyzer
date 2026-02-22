@@ -20,14 +20,19 @@ A fast, cost-effective pipeline for extracting insights from YouTube videos:
    ```
 
 2. **yt-dlp** - For downloading YouTube audio
-   ```bash
-   brew install yt-dlp
-   ```
 
-3. **ffmpeg** - Usually installed with yt-dlp
-   ```bash
-   brew install ffmpeg
-   ```
+   **macOS:** `brew install yt-dlp`  
+   **Debian/Ubuntu:** `sudo apt install yt-dlp`  
+   **Arch:** `sudo pacman -S yt-dlp`  
+   **Other (Python):** `pip3 install yt-dlp`  
+   **Other (binary):** Download from [yt-dlp releases](https://github.com/yt-dlp/yt-dlp/releases)
+
+3. **ffmpeg** - Audio processing (often a yt-dlp dependency)
+
+   **macOS:** `brew install ffmpeg`  
+   **Debian/Ubuntu:** `sudo apt install ffmpeg`  
+   **Arch:** `sudo pacman -S ffmpeg`  
+   **Other:** See [ffmpeg.org/download](https://ffmpeg.org/download.html)
 
 ### Install the Skill
 
