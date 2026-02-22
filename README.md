@@ -1,13 +1,13 @@
 # OpenClaw Video Analyzer Skill
 
-🎬 Transcribe and analyze YouTube videos using Groq Whisper + Kimi
+🎬 Transcribe and analyze YouTube videos using Groq Whisper + OpenClaw
 
 ## Overview
 
 A fast, cost-effective pipeline for extracting insights from YouTube videos:
 
 1. **Groq Whisper** - Transcribes audio 100x faster than real-time (~$0.04/hour)
-2. **Kimi (via OpenClaw)** - Analyzes transcript using your existing subscription
+2. **OpenClaw Agent** - Analyzes transcript using your configured LLM
 
 ## Installation
 
@@ -73,7 +73,7 @@ Once installed, just paste a YouTube link and ask:
 
 The agent will automatically:
 1. Download and transcribe using Groq Whisper
-2. Analyze using Kimi through your OpenClaw setup
+2. Analyze using your OpenClaw agent's LLM
 3. Return structured insights
 
 ## Cost Comparison
@@ -82,12 +82,12 @@ The agent will automatically:
 |--------|--------------|-------|
 | Manual | Your time | Hours |
 | OpenAI Whisper | $0.36 | ~5 min |
-| **Groq + Kimi** | **~$0.04** | **~2 min** |
+| **Groq Whisper** | **~$0.04** | **~2 min** |
 
 ## How It Works
 
 ```
-YouTube URL → yt-dlp → Audio → Groq Whisper → Transcript → Kimi Analysis → Insights
+YouTube URL → yt-dlp → Audio → Groq Whisper → Transcript → OpenClaw Analysis → Insights
 ```
 
 ## How Chunking Works
@@ -122,4 +122,3 @@ MIT
 
 - [OpenClaw](https://openclaw.ai) - The AI agent platform
 - [Groq](https://groq.com) - Fast AI inference
-- [Kimi](https://kimi.moonshot.cn) - AI assistant
