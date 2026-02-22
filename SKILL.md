@@ -1,10 +1,7 @@
 ---
 name: video-analyzer
 description: Transcribe and analyze YouTube videos using Groq Whisper for fast transcription. Use when the user provides a YouTube URL and asks to summarize, analyze, transcribe, or extract insights from a video. Trigger phrases include "summarize this video", "analyze this YouTube link", "what's this video about", "transcribe this", "extract key points from video".
-metadata:
-  {
-    "openclaw": { "always": true, "emoji": "🎬" }
-  }
+metadata: {"openclaw": {"always": true, "emoji": "🎬"}}
 ---
 
 # Video Analyzer
