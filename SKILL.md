@@ -32,7 +32,7 @@ When the user drops a YouTube link and asks for analysis:
 1. **Transcribe** using the script:
    ```bash
    TRANSCRIPT_FILE=$(mktemp)
-   /Users/cboyd-mac-mini/open-claw-voice-agent/skills/video-analyzer/scripts/video-transcribe.sh "https://youtu.be/..." "$TRANSCRIPT_FILE"
+   /Users/cboyd-mac-mini/openclaw-video-analyzer/scripts/video-transcribe.sh "https://youtu.be/..." "$TRANSCRIPT_FILE"
    ```
 
 2. **Analyze** using your LLM capabilities (Kimi via OpenClaw):
