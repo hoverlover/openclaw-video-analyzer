@@ -185,12 +185,12 @@ if [[ "$NEEDS_CHUNKING" == "true" ]]; then
         
         # Split the audio file
         # Use segment muxer with re-encoding for precise cuts at silence points
-        local prev=0
-        local i=1
-        local segments=""
+        prev=0
+        i=1
+        segments=""
         
         for split in $SPLIT_POINTS; do
-            local seg_file="$TMPDIR/chunk_$(printf "%03d" $i).mp3"
+            seg_file="$TMPDIR/chunk_$(printf "%03d" $i).mp3"
             
             # Extract segment using ffmpeg with re-encoding for clean cuts
             ffmpeg -y -i "$AUDIO_FILE" -ss $prev -to $split -c:a libmp3lame -q:a 2 \
@@ -205,7 +205,7 @@ if [[ "$NEEDS_CHUNKING" == "true" ]]; then
         done
         
         # Final segment (from last split to end)
-        local final_seg="$TMPDIR/chunk_$(printf "%03d" $i).mp3"
+        final_seg="$TMPDIR/chunk_$(printf "%03d" $i).mp3"
         ffmpeg -y -i "$AUDIO_FILE" -ss $prev -c:a libmp3lame -q:a 2 \
             "$final_seg" 2>/dev/null
         
@@ -216,13 +216,13 @@ if [[ "$NEEDS_CHUNKING" == "true" ]]; then
         # Transcribe each chunk
         echo "🎯 Transcribing $(echo $segments | wc -w) chunks..." >&2
         
-        local chunk_num=1
-        local total_chunks=$(echo $segments | wc -w)
+        chunk_num=1
+        total_chunks=$(echo $segments | wc -w)
         
         > "$OUTPUT"  # Clear output file
         
         for seg in $segments; do
-            local chunk_out="$TMPDIR/chunk_${chunk_num}_transcript.txt"
+            chunk_out="$TMPDIR/chunk_${chunk_num}_transcript.txt"
             
             echo "   Chunk $chunk_num/$total_chunks..." >&2
             
