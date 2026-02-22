@@ -116,20 +116,29 @@ TRANSCRIPT:
 
 ## Installation
 
-This skill is installed via OpenClaw's skill link method:
+OpenClaw loads skills from **3 locations**:
 
+1. **Built-in skills** (system)
+2. **`~/.openclaw/skills/`** (user directory) ← **Recommended**
+3. **Custom paths** (configured in `openclaw.json`)
+
+**Option A: Copy to user skills directory (recommended)**
 ```bash
-openclaw skills link /path/to/video-analyzer
+cp -r /path/to/video-analyzer ~/.openclaw/skills/video-analyzer
 ```
 
-Or add to your openclaw.json:
+**Option B: Add to openclaw.json**
 ```json
 {
-  "skills": {
-    "additional": ["/path/to/video-analyzer"]
+  "plugins": {
+    "load": {
+      "paths": ["/path/to/parent-directory"]
+    }
   }
 }
 ```
+
+Then restart OpenClaw.
 
 ## Future Enhancements
 

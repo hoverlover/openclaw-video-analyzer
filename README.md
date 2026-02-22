@@ -29,27 +29,21 @@ A fast, cost-effective pipeline for extracting insights from YouTube videos:
    brew install ffmpeg
    ```
 
-### Link the Skill
+### Install the Skill
+
+Copy or symlink to the OpenClaw user skills directory:
 
 ```bash
-# Clone or navigate to the skill
-openclaw skills link /path/to/openclaw-video-analyzer
+cp -r /path/to/openclaw-video-analyzer ~/.openclaw/skills/video-analyzer
 ```
 
-Or add to your `openclaw.json`:
-```json
-{
-  "plugins": {
-    "load": {
-      "paths": ["/path/to/parent-directory"]
-    }
-  }
-}
-```
+Then restart OpenClaw: `openclaw gateway restart`
+
+*OpenClaw auto-loads skills from `~/.openclaw/skills/` on startup.*
 
 ## Usage
 
-Once linked, just paste a YouTube link and ask:
+Once installed, just paste a YouTube link and ask:
 - "Summarize this video"
 - "Analyze this YouTube link"
 - "What are the key points?"
