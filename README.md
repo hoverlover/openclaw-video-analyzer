@@ -31,15 +31,25 @@ A fast, cost-effective pipeline for extracting insights from YouTube videos:
 
 ### Install the Skill
 
-Copy or symlink to the OpenClaw user skills directory:
+OpenClaw loads skills from **3 locations** (in order):
+
+1. **Built-in skills** (`/opt/homebrew/lib/node_modules/openclaw/skills/`)
+2. **User directory** (`~/.openclaw/skills/`) ← **Recommended**
+3. **Custom paths** (configured in `openclaw.json`)
+
+**Clone into the user skills directory:**
 
 ```bash
-cp -r /path/to/openclaw-video-analyzer ~/.openclaw/skills/video-analyzer
+# Create the user skills directory if it doesn't exist
+mkdir -p ~/.openclaw/skills
+
+# Clone the repo
+git clone https://github.com/hoverlover/openclaw-video-analyzer.git ~/.openclaw/skills/video-analyzer
 ```
 
 Then restart OpenClaw: `openclaw gateway restart`
 
-*OpenClaw auto-loads skills from `~/.openclaw/skills/` on startup.*
+*Note: You can also clone elsewhere and symlink, or add a custom path to `openclaw.json` under `plugins.load.paths`.*
 
 ## Usage
 
